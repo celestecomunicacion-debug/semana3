@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>EJEMPLO CLASE</title>
+</head>
+
+<body>
+
+    <!-- FORMULARIO -->
+    <form onsubmit="mostrarRespuesta(); return false;">
+        Número de coches: <input type="text" name="ncoches">
+        Número de motos: <input type="text" name="nmotos">
+        <input type="submit" value="Realizar petición">
+    </form>
+
+    <hr>
+
+    <!-- BLOQUE OCULTO (aparece al pulsar el botón) -->
+    <div id="bloqueRespuesta" style="display:none;">
+
+        <p id="demo">JavaScript can change HTML content.</p>
+
+        <button type="button" onclick="cambiarTexto()">Cambiar</button>
+        <button type="button" onclick="restaurarTexto()">Original</button>
+
+        <br><br>
+
+        <!-- Bombilla -->
+        <img id="imagenBombilla"
+             onclick="CambiarImagen()"
+             src="pic_bulboff.gif"
+             width="100"
+             height="180"
+             style="cursor:pointer;">
+
+    </div>
+
+    <script>
+
+        const textoInicial = "JavaScript can change HTML content.";
+
+        function mostrarRespuesta() {
+            document.getElementById("bloqueRespuesta").style.display = "block";
+        }
+
+        function cambiarTexto() {
+            document.getElementById("demo").innerHTML = "Hello JavaScript!";
+        }
+
+        function restaurarTexto() {
+            document.getElementById("demo").innerHTML = textoInicial;
+        }
+
+        function CambiarImagen() {
+            var imagen = document.getElementById("imagenBombilla");
+            if (imagen.src.match("bulbon")) {
+                imagen.src = "pic_bulboff.gif";
+            } else {
+                imagen.src = "pic_bulbon.gif";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
+
